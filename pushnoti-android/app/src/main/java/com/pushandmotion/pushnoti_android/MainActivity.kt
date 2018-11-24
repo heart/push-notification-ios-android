@@ -13,6 +13,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        FirebaseMessaging.getInstance().isAutoInitEnabled = true
 
         val btn = findViewById<Button>(R.id.copy_push_key)
 
@@ -69,6 +73,8 @@ class MainActivity : AppCompatActivity() {
         val token = SharedPrefsUtils.getStringPreference(MainApplication.instance,"push_key")
         val t = token ?: return
         findViewById<TextView>(R.id.push_key).text = t
+
+
     }
 
 

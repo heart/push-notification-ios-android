@@ -1,6 +1,7 @@
 package com.pushandmotion.pushnoti_android
 
 import android.app.Application
+import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 
 class MainApplication: Application() {
@@ -13,7 +14,7 @@ class MainApplication: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        FirebaseMessaging.getInstance().isAutoInitEnabled = true
+        FirebaseApp.initializeApp(this )
         instance = this
 
     }
